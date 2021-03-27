@@ -1,5 +1,8 @@
 #pragma once
 
+#include <stdlib.h>
+#include <stdio.h>
+
 typedef struct info_t {
     char* name;
     char* email_id;
@@ -11,7 +14,7 @@ typedef enum error_t{
     FAILURE = -1
 }error_t;
 
-error_t csv_read(const char* _path_to_csvfile, FILE **_filepntr);
+error_t csv_read(const char* _path_to_csvfile); //implement a way to bring the read data
 
 error_t csv_disp_ln(FILE **_filepntr);
 
