@@ -1,13 +1,21 @@
 #include "read_csv.h"
 
-error_t csv_read(const char* _path_to_csvfile, FILE **_filepntr){
+error_t csv_read(const char* _path_to_csvfile, FILE **_filepntr, int *_no_of_lines){
         
         *_filepntr = fopen(_path_to_csvfile, "r");
-        
+        *_no_of_lines = 0;
+
         if(*_filepntr == NULL){
             return FAILURE;
         }
-        
+        char c;
+        while( ( c = getc(*_filepntr) ) != EOF )
+            (*_no_of_lines) += (c == '\n')?1:0;
+
+        *_filepntr = fopen(_path_to_csvfile, "r");
+        if(*_filepntr == NULL){
+            return FAILURE;
+        }
         return SUCCESS;
 }
 
@@ -43,10 +51,8 @@ error_t csv_disp_ln(FILE **_filepntr){
     return SUCCESS;
 }
 
-error_t csv_close(FILE **_filepntr){
-        
+error_t csv_close(FILE **_filepntr){      
         if( *_filepntr == NULL ) return FAILURE;
-        
         fclose(*_filepntr);
         return SUCCESS;
 }
