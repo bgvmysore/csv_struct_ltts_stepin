@@ -65,17 +65,17 @@ error_t csv_to_arr(FILE **_filepntr, int *_no_of_lines, info_t* _array_info_t){
             if(c == ',' || c == '\n'){
                 buffer[j] = '\0';
                 if(comma_cnt == 0){
-                    ( *(_array_info_t+i) ).name = malloc(strlen(buffer)*sizeof(char));
+                    ( *(_array_info_t+i) ).name = malloc( ( strlen(buffer)+1 )*sizeof(char));
                     strcpy(( *(_array_info_t+i) ).name, buffer);
                     comma_cnt ++;
                 }
                 else if(comma_cnt == 1){
-                    ( *(_array_info_t+i) ).email_id = malloc(strlen(buffer)*sizeof(char));
+                    ( *(_array_info_t+i) ).email_id = malloc( ( strlen(buffer)+1 )*sizeof(char));
                     strcpy(( *(_array_info_t+i) ).email_id, buffer);
                     comma_cnt++;
                 }
                 else if(comma_cnt == 2){
-                    ( *(_array_info_t+i) ).git_link = malloc(strlen(buffer)*sizeof(char));
+                    ( *(_array_info_t+i) ).git_link = malloc( ( strlen(buffer)+1 )*sizeof(char));
                     strcpy(( *(_array_info_t+i) ).git_link, buffer);
                     comma_cnt = 0;
                 }
