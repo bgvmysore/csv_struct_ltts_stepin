@@ -91,7 +91,17 @@ error_t csv_to_arr(FILE **_filepntr, int *_no_of_lines, info_t* _array_info_t){
     return SUCCESS;
 }
 
-error_t free_csv_arr(info_t* _array_info_t, int *_no_of_lines){
+int alphabaticalorder(const void * _info_t_a, const void * _info_t_b){
+    return strcmp( (*(info_t *)_info_t_a).name, (*(info_t *)_info_t_b).name);
+}
+
+error_t csv_arr_sort(info_t* _array_info_t, int *_no_of_lines){
+    if(_no_of_lines == NULL || _array_info_t == NULL) return FAILURE;
+    qsort(_array_info_t, *_no_of_lines, sizeof(info_t), alphabaticalorder);
+    return SUCCESS;
+}
+
+error_t csv_arr_free(info_t* _array_info_t, int *_no_of_lines){
     if(_no_of_lines == NULL || _array_info_t == NULL) return FAILURE;
     for(int i=0; i< *_no_of_lines; i++){
         free( ( *(_array_info_t+i) ).name );
