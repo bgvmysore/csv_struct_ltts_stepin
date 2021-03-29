@@ -12,10 +12,7 @@ error_t csv_read(const char* _path_to_csvfile, FILE **_filepntr, int *_no_of_lin
         while( ( c = getc(*_filepntr) ) != EOF )
             (*_no_of_lines) += (c == '\n')?1:0;
 
-        *_filepntr = fopen(_path_to_csvfile, "r");
-        if(*_filepntr == NULL){
-            return FAILURE;
-        }
+        fseek(*_filepntr, 0, SEEK_SET);
         return SUCCESS;
 }
 
@@ -47,7 +44,7 @@ error_t csv_disp_ln(FILE **_filepntr){
         }
         i++;
     }
-    
+    fseek(*_filepntr, 0, SEEK_SET);
     return SUCCESS;
 }
 
