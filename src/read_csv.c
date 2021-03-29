@@ -90,3 +90,15 @@ error_t csv_to_arr(FILE **_filepntr, int *_no_of_lines, info_t* _array_info_t){
     fseek(*_filepntr, 0, SEEK_SET);
     return SUCCESS;
 }
+
+error_t free_csv_arr(info_t* _array_info_t, int *_no_of_lines){
+    if(_no_of_lines == NULL || _array_info_t == NULL) return FAILURE;
+    for(int i=0; i< *_no_of_lines; i++){
+        free( ( *(_array_info_t+i) ).name );
+        free( ( *(_array_info_t+i) ).email_id );
+        free( ( *(_array_info_t+i) ).git_link );
+    }
+    free( _array_info_t );
+    *_no_of_lines = 0;
+    return SUCCESS;
+}

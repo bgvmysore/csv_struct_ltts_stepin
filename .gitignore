@@ -1,3 +1,5 @@
 .vscode/
-main.exe
+*.exe
 main_db.exe
+resultsold.txt
+results.txt
