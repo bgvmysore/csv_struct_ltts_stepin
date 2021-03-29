@@ -2,6 +2,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 typedef struct info_t {
     char* name;
@@ -19,3 +20,5 @@ error_t csv_read(const char* _path_to_csvfile, FILE **_filepntr, int *_no_of_lin
 error_t csv_disp_ln(FILE **_filepntr);
 
 error_t csv_close(FILE **_filepntr);
+
+error_t csv_to_arr(FILE **_filepntr, int *_no_of_lines, info_t* _array_info_t);

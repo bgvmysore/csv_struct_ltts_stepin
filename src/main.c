@@ -5,12 +5,17 @@
 int main(){
     FILE *fptr;
     int nLn;
+    info_t* arr;
 
     csv_read("./data.csv", &fptr, &nLn);
 
-    printf("No of lines in csv file: %d\n\n", nLn);
+    arr = malloc(nLn*sizeof(info_t));
 
-    csv_disp_ln(&fptr);
+    csv_to_arr(&fptr, &nLn, arr);
+    for(int i=0; i<nLn; i++)
+        printf("%s, %s, %s\n", arr[i].name, arr[i].email_id, arr[i].git_link);
+
+    //csv_disp_ln(&fptr);
 
     csv_close(&fptr);
     
