@@ -27,4 +27,6 @@ error_t csv_arr_sort(info_t* _array_info_t, int *_no_of_lines);
 
 error_t csv_arr_free(info_t* _array_info_t, int *_no_of_lines);
 
+error_t disp_info_t(info_t const* _info_t_obj);
+
 int alphabaticalorder(const void * _info_t_a, const void * _info_t_b);

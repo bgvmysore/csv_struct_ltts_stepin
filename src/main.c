@@ -17,7 +17,7 @@ int main(){
 
     printf("\n\n");
     for(int i=0; i<nLn; i++)
-        printf("%s, %s, %s\n", arr[i].name, arr[i].email_id, arr[i].git_link);
+        disp_info_t(&arr[i]);
      printf("\n\n");
 
     csv_arr_free(arr, &nLn);

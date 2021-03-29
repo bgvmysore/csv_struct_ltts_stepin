@@ -109,6 +109,14 @@ error_t csv_arr_free(info_t* _array_info_t, int *_no_of_lines){
     return SUCCESS;
 }
 
+error_t disp_info_t(info_t const* _info_t_obj){
+    if(_info_t_obj == NULL) return FAILURE;
+
+    printf("%s -- %s -- %s\n", _info_t_obj->name, _info_t_obj->email_id, _info_t_obj->git_link);
+
+    return SUCCESS;
+}
+
 int alphabaticalorder(const void * _info_t_a, const void * _info_t_b){
     return strcmp( (*(info_t *)_info_t_a).name, (*(info_t *)_info_t_b).name);
 }
