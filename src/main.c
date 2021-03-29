@@ -4,7 +4,8 @@
 
 int main(){
     FILE *fptr;
-    fptr = fopen("./data.csv", "r");
-    csv_read("./data.csv");
+    csv_read("./data.csv", &fptr);
+    csv_disp_ln(&fptr);
+    csv_close(&fptr);
     return 0;
 }
