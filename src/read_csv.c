@@ -91,10 +91,6 @@ error_t csv_to_arr(FILE **_filepntr, int *_no_of_lines, info_t* _array_info_t){
     return SUCCESS;
 }
 
-int alphabaticalorder(const void * _info_t_a, const void * _info_t_b){
-    return strcmp( (*(info_t *)_info_t_a).name, (*(info_t *)_info_t_b).name);
-}
-
 error_t csv_arr_sort(info_t* _array_info_t, int *_no_of_lines){
     if(_no_of_lines == NULL || _array_info_t == NULL) return FAILURE;
     qsort(_array_info_t, *_no_of_lines, sizeof(info_t), alphabaticalorder);
@@ -111,4 +107,8 @@ error_t csv_arr_free(info_t* _array_info_t, int *_no_of_lines){
     free( _array_info_t );
     *_no_of_lines = 0;
     return SUCCESS;
+}
+
+int alphabaticalorder(const void * _info_t_a, const void * _info_t_b){
+    return strcmp( (*(info_t *)_info_t_a).name, (*(info_t *)_info_t_b).name);
 }
