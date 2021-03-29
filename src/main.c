@@ -16,10 +16,10 @@ int main(){
     printf("\n\n");
     for(int i=0; i<nLn; i++)
         printf("%s, %s, %s\n", arr[i].name, arr[i].email_id, arr[i].git_link);
+     printf("\n\n");
 
     csv_disp_ln(&fptr);
-    printf("\n\n");
-    
+
     csv_close(&fptr);
     
     return 0;
