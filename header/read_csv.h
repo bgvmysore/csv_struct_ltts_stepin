@@ -23,4 +23,6 @@ error_t csv_close(FILE **_filepntr);
 
 error_t csv_to_arr(FILE **_filepntr, int *_no_of_lines, info_t* _array_info_t);
 
-error_t free_csv_arr(info_t* _array_info_t, int *_no_of_lines);
+error_t csv_arr_sort(info_t* _array_info_t, int *_no_of_lines);
+
+error_t csv_arr_free(info_t* _array_info_t, int *_no_of_lines);
