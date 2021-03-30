@@ -6,35 +6,35 @@ void setUp(void){return;}
 void tearDown(void){return;}
 
 void test_csv_read(void){
-    char * pathtoscv = "data.csv";
+    char *pathtoscv = "data.csv";
     int nofline = 0;
-    FILE * myfptr;
+    FILE *myfptr;
     TEST_ASSERT_EQUAL_INT(SUCCESS, csv_read(pathtoscv, &myfptr, &nofline));
     TEST_ASSERT_EQUAL_INT(5, nofline);
     csv_close(&myfptr);
 }
 
 void test_csv_disp_ln(void){
-    char * pathtoscv = "data.csv";
+    char *pathtoscv = "data.csv";
     int nofline = 0;
-    FILE * myfptr;
+    FILE *myfptr;
     csv_read(pathtoscv, &myfptr, &nofline);
     TEST_ASSERT_EQUAL_INT(SUCCESS, csv_disp_ln(&myfptr));
     csv_close(&myfptr);
 }
 
 void test_csv_close(void){
-    char * pathtoscv = "data.csv";
+    char *pathtoscv = "data.csv";
     int nofline = 0;
-    FILE * myfptr;
+    FILE *myfptr;
     csv_read(pathtoscv, &myfptr, &nofline);
     TEST_ASSERT_EQUAL_INT(SUCCESS, csv_close(&myfptr));
 }
 
 void test_csv_to_arr(void){
-    char * pathtoscv = "data.csv";
+    char *pathtoscv = "data.csv";
     int nofline = 0;
-    FILE * myfptr;
+    FILE *myfptr;
     csv_read(pathtoscv, &myfptr, &nofline);
     info_t *arr;
     arr = malloc(nofline*sizeof(info_t));
@@ -49,9 +49,9 @@ void test_disp_info_t(void){
 }
 
 void test_csv_arr_sort(void){
-    char * pathtoscv = "data.csv";
+    char *pathtoscv = "data.csv";
     int nofline = 0;
-    FILE * myfptr;
+    FILE *myfptr;
     csv_read(pathtoscv, &myfptr, &nofline);
     info_t *arr;
     arr = malloc(nofline*sizeof(info_t));
@@ -65,9 +65,9 @@ void test_csv_arr_sort(void){
 }
 
 void test_csv_arr_free(){
-    char * pathtoscv = "data.csv";
+    char *pathtoscv = "data.csv";
     int nofline = 0;
-    FILE * myfptr;
+    FILE *myfptr;
     csv_read(pathtoscv, &myfptr, &nofline);
     info_t *arr;
     arr = malloc(nofline*sizeof(info_t));
